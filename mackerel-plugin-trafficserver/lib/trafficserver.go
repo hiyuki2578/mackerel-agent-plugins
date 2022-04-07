@@ -93,7 +93,7 @@ func parseVars(text *string, statp *map[string]interface{}) error {
 }
 
 func getDataWithCommand() (*string, error) {
-	cmd := exec.Command("traffic_line", "-m", "^proxy")
+	cmd := exec.Command("traffic_ctl", "metric", "match", "^proxy")
 
 	var out bytes.Buffer
 	cmd.Stdout = &out
