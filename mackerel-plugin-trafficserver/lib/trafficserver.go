@@ -36,20 +36,22 @@ var graphdef = map[string]mp.Graphs{
 		Unit:  "integer",
 		Metrics: []mp.Metrics{
 			{Name: "conn_server", Label: "Server"},
-			{Name: "conn_client", Label: "Client"},
+			{Name: "conn_client_h1", Label: "http1 Client"},
+			{Name: "conn_client_h2", Label: "http2 Client"},
 		},
 	},
 }
 
 var metricVarDef = map[string]string{
-	"cache_hits":   "proxy.node.cache_total_hits",
-	"cache_misses": "proxy.node.cache_total_misses",
+	"cache_hits":   "proxy.process.cache_total_hits",
+	"cache_misses": "proxy.process.cache_total_misses",
 	"http_2xx":     "proxy.process.http.2xx_responses",
 	"http_3xx":     "proxy.process.http.3xx_responses",
 	"http_4xx":     "proxy.process.http.4xx_responses",
 	"http_5xx":     "proxy.process.http.5xx_responses",
-	"conn_server":  "proxy.node.current_server_connections",
-	"conn_client":  "proxy.node.current_client_connections",
+	"conn_server":  "proxy.process.current_server_connections",
+	"conn_client_h1":  "proxy.process.http.current_client_connections",
+	"conn_client_h2":  "proxy.process.http2.current_client_connections",
 }
 
 // TrafficserverPlugin mackerel plugin for apache trafficserver
